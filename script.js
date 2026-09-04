@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
         li.innerHTML = `
           <div class="task-left">
             <label class="checkbox-container">
-              <input type="checkbox" ${task.completed ? 'checked' : ''} aria-label="Mark task complete" />
+              <input type="checkbox" ${task.completed ? 'checked' : ''} aria-label="${task.completed ? 'Mark task incomplete' : 'Mark task complete'}: ${task.title}" />
               <span class="checkmark"></span>
             </label>
             <span class="task-title"></span>
