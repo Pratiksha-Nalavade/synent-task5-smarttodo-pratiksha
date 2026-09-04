@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="PaperFlow - A warm, digital notebook to organize your day.">
+  <title>PaperFlow — Your day, organized.</title>
+  
+  <!-- Google Fonts: Playfair Display for headers, Inter for readable UI body text -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,600;0,700;1,400&display=swap" rel="stylesheet">
+  
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="planner-wrapper">
+    <!-- Planner Header Section -->
+    <header class="planner-header">
+      <div class="brand-row">
+        <div class="logo-group">
+          <span class="notebook-icon" aria-hidden="true">📖</span>
+          <h1 class="brand-title">PaperFlow</h1>
+        </div>
+        <span class="brand-tagline">"Your day, organized."</span>
+      </div>
+      <div class="greeting-box">
+        <h2 class="greeting-title">Good morning! 👋</h2>
+        <p class="greeting-subtitle">What do you want to accomplish today?</p>
+      </div>
+    </header>
+
+    <!-- Task Input & Form Section -->
+    <section class="task-input-section" aria-labelledby="add-task-heading">
+      <h2 id="add-task-heading" class="sr-only">Add New Task</h2>
+      <form id="task-form" class="task-form" novalidate>
+        <div class="input-group">
+          <input 
+            type="text" 
+            id="task-input" 
+            class="task-input" 
+            placeholder="What needs to be done?" 
+            aria-label="New task title"
+            autocomplete="off"
+          />
+          <button type="submit" class="btn btn-primary" id="add-btn">
+            <span>+</span> Add Task
+          </button>
+        </div>
+        <p id="input-error" class="error-message" role="alert" aria-live="polite"></p>
+      </form>
+    </section>
+
+    <!-- Statistics Section -->
+    <section class="stats-section" aria-label="Task Statistics">
+      <div class="stat-card">
+        <span class="stat-label">Total Tasks</span>
+        <span id="stat-total" class="stat-value">0</span>
+      </div>
+      <div class="stat-card">
+        <span class="stat-label">Active</span>
+        <span id="stat-active" class="stat-value">0</span>
+      </div>
+      <div class="stat-card stat-completed">
+        <span class="stat-label">Completed</span>
+        <span id="stat-completed" class="stat-value">0</span>
+      </div>
+    </section>
+
+    <!-- Search & Filter Controls Section -->
+    <section class="controls-section" aria-label="Task Controls and Filters">
+      <div class="search-box">
+        <span class="search-icon" aria-hidden="true">🔍</span>
+        <input 
+          type="search" 
+          id="search-input" 
+          class="search-input" 
+          placeholder="Search your tasks..." 
+          aria-label="Search tasks"
+        />
+      </div>
+
+      <div class="filter-tabs" role="tablist" aria-label="Filter tasks">
+        <button 
+          class="tab-btn active" 
+          data-filter="all" 
+          role="tab" 
+          aria-selected="true"
+          id="filter-all"
+        >
+          All
+        </button>
+        <button 
+          class="tab-btn" 
+          data-filter="active" 
+          role="tab" 
+          aria-selected="false"
+          id="filter-active"
+        >
+          Active
+        </button>
+        <button 
+          class="tab-btn" 
+          data-filter="completed" 
+          role="tab" 
+          aria-selected="false"
+          id="filter-completed"
+        >
+          Completed
+        </button>
+      </div>
+    </section>
+
+    <!-- Task List Main Display Section -->
+    <main class="task-list-section">
+      <div class="list-header">
+        <h2 class="list-title">My Tasks</h2>
+        <button id="clear-completed-btn" class="btn btn-text" type="button">
+          Clear completed
+        </button>
+      </div>
+
+      <!-- Container where JavaScript injects task items -->
+      <ul id="task-list" class="task-list" aria-live="polite" aria-label="Tasks list">
+        <!-- Rendered dynamically -->
+      </ul>
+
+      <!-- Empty State UI -->
+      <div id="empty-state" class="empty-state hidden">
+        <div class="empty-illustration" aria-hidden="true">
+          <div class="paper-graphic">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line short"></div>
+            <div class="check-mark">✓</div>
+          </div>
+        </div>
+        <h3 id="empty-title" class="empty-title">Your task list is clear.</h3>
+        <p id="empty-subtitle" class="empty-subtitle">Add something you'd like to accomplish today.</p>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="planner-footer">
+      <p>PaperFlow Personal Planner &bull; Digital Notebook Edition</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
