@@ -53,3 +53,14 @@ PaperFlow saves data in the user's browser storage using standard key-value pair
    The internal JavaScript `tasks` array (containing objects with `id`, `title`, and `completed` fields) is serialized into a string and saved:
    ```javascript
    localStorage.setItem('paperflow_tasks_data', JSON.stringify(tasks));
+
+---
+
+## 6. How to Run the Project
+
+1. Download or clone the project repository from GitHub.
+2. Open the project folder.
+3. Open `index.html` in a modern web browser.
+4. Start adding tasks and use the available search, filter, edit, complete, and delete features.
+
+No additional installation, packages, or server setup is required.
