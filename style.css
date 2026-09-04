@@ -712,3 +712,13 @@ body {
     padding: 0.3rem 0.4rem;
   }
 }
+@media (max-width: 480px) {
+  .task-actions {
+    gap: 0.25rem;
+  }
+
+  .btn-action {
+    padding: 0.45rem 0.5rem;
+    font-size: 0.75rem;
+  }
+}
